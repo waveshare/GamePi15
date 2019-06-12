@@ -1,0 +1,13 @@
+UP        5  # Joypad up
+DOWN      6   # Joypad down
+LEFT      16   # Joypad left
+RIGHT     13  # Joypad right
+ENTER     26  # 'Start' button
+RIGHTCTRL 19  # 'Select' button
+Z         21  # 'A' button
+X         20  # 'B' button
+S         15  # 'X' button
+M         12  # 'Y' button
+Q         14  # Left1 shoulder button
+R         23  # Right1 shoulder button
+ESC       3  # Hotkey

@@ -1,0 +1,561 @@
+# System Variable
+# You can configure your recalbox from here
+# To set a variable, remove the first ; on the line
+
+
+
+# ------------ A - System Options ----------- #
+#    Uncomment the system.power.switch you use
+;system.power.switch=ATX_RASPI_R2_6      # http://lowpowerlab.com/atxraspi/#installation
+;system.power.switch=MAUSBERRY           # http://mausberry-circuits.myshopify.com/pages/setup
+;system.power.switch=REMOTEPIBOARD_2003  # http://www.msldigital.com/pages/support-for-remotepi-board-2013
+;system.power.switch=REMOTEPIBOARD_2005  # http://www.msldigital.com/pages/support-for-remotepi-board-plus-2015
+;system.power.switch=WITTYPI             # http://www.uugear.com/witty-pi-realtime-clock-power-management-for-raspberry-pi
+;system.power.switch=PIN56ONOFF          # https://github.com/recalbox/recalbox-os/wiki/Add-a-start-stop-button-to-your-recalbox-(EN)
+;system.power.switch=PIN56PUSH           # https://github.com/recalbox/recalbox-os/wiki/Add-a-start-stop-button-to-your-recalbox-(EN)
+;system.power.switch=PIN356ONOFFRESET    # https://github.com/recalbox/recalbox-os/wiki/Add-a-start-stop-button-to-your-recalbox-(EN)
+;system.power.switch=PIN356PUSHRESET     # https://github.com/recalbox/recalbox-os/wiki/Add-a-start-stop-button-to-your-recalbox-(EN)
+
+## fbcp FrameBuffer Copy Program
+## For small TFT screen on GPIO and SPI
+## See https://github.com/recalbox/recalbox-os/wiki/Utility---Use-of-fbcp-for-small-TFT-screen-%28EN%29 for details
+## Needed for Waveshare 3.2" 3.5" TFT screen, 2.8" Adafruit screen
+## See https://github.com/recalbox/recalbox-os/wiki/TFT-Screen-SPI-Bus-%28EN%29
+## for support and configuration details needed by /boot/config.txt
+system.fbcp.enabled=1
+
+## Splash screen duration
+## 0: Video will be played for 20 seconds (default)
+## -1: All the video will be played (it won't be stopped automatically)
+## >0 : Time before the video will be stopped (in seconds)
+system.splash.length=0
+
+## Recalbox Manager (http manager)
+system.manager.enabled=1
+## 1 or 2, depending on the manager version you wish
+system.manager.version=2
+
+## Recalbox security
+# enforce security
+# samba password required
+# disable virtual gamepads
+system.security.enabled=0
+
+## Recalbox API (REST)
+system.api.enabled=0
+
+## Allow a specific resolution for ES only from the command : tvservice -m [MODE]
+## Leave commented for the default usual behaviour
+;system.es.videomode=CEA 4 HDMI
+
+## EmulationStation
+### menu style
+### default -> default all options menu
+### none -> no menu except the game search menu
+### bartop -> less menu, only needed for bartops
+emulationstation.menu=default
+### Select a system to show on boot (use rom directory name) (string)
+emulationstation.selectedsystem=favorites
+### Show the gamelist of the first or selected system on boot (0,1)
+emulationstation.bootongamelist=0
+### Disable system view. ES will boot and show ONLY the first or selected system (0,1)
+emulationstation.hidesystemview=0
+### Parse Gamelists only. Show only games listed in gamelist.xml files (0,1)
+emulationstation.gamelistonly=0
+### Force basicgameList view to be displayed, even if your game systems are scraped (0,1)
+emulationstation.forcebasicgamelistview=0
+
+## Emulator special keys
+## default -> default all special keys
+## nomenu -> cannot popup the emulator menu
+## none -> no special keys in emulators
+system.emulators.specialkeys=default
+
+## Show or hide kodi in emulationstation (0,1)
+kodi.enabled=1
+## Start kodi at launch (0,1)
+kodi.atstartup=0
+## set x button shortcut (0,1)
+kodi.xbutton=1
+
+## Allow a specific resolution for Kodi only from the command : tvservice -m [MODE]
+## By default is using the default resolution of your screen
+kodi.videomode=default
+
+## Kodi can wait for a network component before starting
+## waithost is the ip or hostname that must answer to a ping to validate the availability
+## waittime is the maximum time waited when kodi boots
+## if waitmode is required, kodi will not start if the component is not available
+## if waitmode is wish, kodi will start if the component is not available
+## if waitmode is not set or has another value, kodi will start immediately
+;kodi.network.waitmode=required
+;kodi.network.waittime=10
+;kodi.network.waithost=192.168.0.50
+
+## Hyperion
+## Hyperion allows you to use an ambilight like led system on your recalbox
+## Use hypercon to create your configuration file, and copy it in /recalbox/share/system/configs/hyperion/hyperion.config.json
+hyperion.enabled=0
+
+
+# ------------ B - Network ------------ #
+## Set system hostname
+system.hostname=RECALBOX
+## Activate wifi (0,1)
+wifi.enabled=0
+## Set wifi region
+## More info here: https://github.com/recalbox/recalbox-os/wiki/Wifi-country-code
+wifi.region=US
+## Wifi SSID (string)
+;wifi.ssid=new ssid
+## Wifi KEY (string)
+## after rebooting the recalbox, the "new key" is replace by a hidden value "enc:xxxxx"
+## you can edit the "enc:xxxxx" value to replace by a clear value, it will be updated again at the following reboot
+## Escape your special chars (# ; $) with a backslash : $ => \$
+;wifi.key=new key
+
+## Wifi - static IP
+## if you want a static IP address, you must set all 3 values (ip, gateway, and netmask)
+## if any value is missing or all lines are commented out, it will fall back to the
+## default of DHCP
+;wifi.ip=manual ip address
+;wifi.gateway=new gateway
+;wifi.netmask=new netmask
+
+# secondary wifi (not configurable via the user interface)
+;wifi2.ssid=new ssid
+;wifi2.key=new key
+# defaults to dhcp. uncomment for static ip
+;wifi2.ip=manual ip address
+;wifi2.gateway=new gateway
+;wifi2.netmask=new netmask
+
+# third wifi (not configurable via the user interface)
+;wifi3.ssid=new ssid
+;wifi3.key=new key
+# defaults to dhcp. uncomment for static ip
+;wifi3.ip=manual ip address
+;wifi3.gateway=new gateway
+;wifi3.netmask=new netmask
+
+## Samba share
+system.samba.enabled=1
+### Virtual Gamepads
+system.virtual-gamepads.enabled=1
+### SSH
+system.ssh.enabled=1
+
+# ------------ C - Audio ------------ #
+## Set the audio device (auto, hdmi, jack)
+audio.device=auto
+## Set system volume (0..100)
+audio.volume=100
+## Enable or disable system sounds in ES (0,1)
+audio.bgmusic=1
+
+
+
+# -------------- D - Controllers ----------------- #
+# Enable support for standard bluetooth controllers
+controllers.bluetooth.enabled=1
+
+
+## Please enable only one of these
+# -------------- D1 - PS3 Controllers ------------ #
+##Enable PS3 controllers support
+controllers.ps3.enabled=1
+## Choose a driver between bluez, official and shanwan
+## bluez -> bluez 5 + kernel drivers, support official and shanwan sisaxis
+## official -> sixad drivers, support official and gasia sisaxis
+## shanwan -> shanwan drivers, support official and shanwan sisaxis
+controllers.ps3.driver=bluez
+
+
+# ------------ D2 - GPIO Controllers ------------ #
+## GPIO Controllers
+## enable controllers on GPIO with mk_arcarde_joystick_rpi (0,1)
+controllers.gpio.enabled=1
+## mk_gpio arguments, map=1 for one controller, map=1,2 for 2 (map=1,map=1,2)
+#controllers.gpio.args=map=1
+## Custom mk_gpio arguments,
+## map=5 gpio1=Y-,Y+,X-,X+,start,select,a,b,tr,y,x,tl,hk  for one controller,
+## map=5 gpio1=pin1,pin2,pin3,.....,pin12,pin13
+controllers.gpio.args=map=5 gpio=5,6,16,13,26,19,21,20,14,12,15,23,3
+## map=5,6 gpio1=Y-,Y+,X-,X+,start,select,a,b,tr,y,x,tl,hk gpio2=Y-,Y+,X-,X+,start,select,a,b,tr,y,x,tl,hk for 2 (map=5,map=5,6)
+## map=5,6 gpio1=gpiox,gpioy,gpioz,.....,gpiou,gpiov gpio2=gpiox,gpioy,gpioz,.....,gpiou,gpiov
+# where gpiox,gpioy,gpioz ... are NOT pin numbers on the connector, BUT location gpio numbered as in 
+# https://www.raspberrypi-spy.co.uk/wp-content/uploads/2012/06/Raspberry-Pi-GPIO-Layout-Model-B-Plus-rotated-2700x900.png
+## Set pin to -1 to disable it
+# controllers.gpio.args=map=5,6 gpio=4,17,27,22,10,9,25,24,23,18,15,14,2 gpio2=11,5,6,13,19,26,21,20,16,12,7,8,3
+## MCP configuration : GPIO and MCP can be used together. You can mix them.
+## map=0x20,0x21 for 2 mcp23017 on i2c bus
+#controllers.gpio.args=map=0x20,0x21,5,6 gpio=4,17,27,22,10,9,25,24,23,18,15,14,-1 gpio2=11,5,6,13,19,26,21,20,16,12,7,8,-1
+
+
+
+# ------------ D3 - Steam Controllers ------------ #
+## Enable steam controller service
+controllers.steam.enabled=0
+
+
+## DB9 Controllers
+## Enable DB9 drivers for atari, megadrive, amiga controllers (0,1)
+controllers.db9.enabled=0
+## db9 arguments
+controllers.db9.args=map=1
+
+## Gamecon controllers
+## Enable gamecon controllers, for nes, snes, psx (0,1) 
+controllers.gamecon.enabled=0
+## gamecon_args
+controllers.gamecon.args=map=1
+
+## XGaming's XArcade Tankstik and other compatible devices
+controllers.xarcade.enabled=1
+
+
+
+# ------------ F - Language and keyboard ------------ #
+## Set the language of the system (fr_FR,en_US,en_GB,de_DE,pt_BR,es_ES,it_IT,eu_ES,tr_TR,zh_CN)
+system.language=en_US
+## set the keyboard layout (fr,en,de,us,es)
+;system.kblayout=us
+## Set you local time
+## Select your timezone from : ls /usr/share/zoneinfo/ (string)
+;system.timezone=Europe/Paris
+
+
+
+# ------------ G - UPDATES ------------ #
+## Automatically check for updates at start (0,1)
+updates.enabled=1
+# Update type : default to stable
+updates.type=stable
+
+
+# ------------ H - HERE IT IS - GLOBAL EMULATOR CONFIGURATION ------------ #
+## The global value will be used for all emulators, except if the value
+## is redefined in the emulator
+
+## Set game resolution for emulators
+## select your mode from the command : tvservice -m [MODE]
+## CEA 5 HDMI : 1920x1080 @ 60Hz 16:9, clock:74MHz interlaced 
+## CEA 4 HDMI : 1280x720 @ 60Hz 16:9, clock:74MHz progressive
+## use 'default' for using the default resolution
+## use 'auto' : switches to CEA 4 HDMI if supported, else keep the current resolution
+## (string)
+global.videomode = default
+
+## Shader set 
+## Automatically select shaders for all systems
+## (none, retro, scanlines)
+global.shaderset=none
+
+## Once enabled, your screen will be cropped, and you will have a pixel perfect image (0,1)
+global.integerscale=0
+
+## Set gpslp shader for all emulators (prefer shadersets above). Absolute path (string)
+global.shaders=
+
+## Set ratio for all emulators (auto,4/3,16/9,16/10,custom)
+global.ratio=1/1
+
+## Set smooth for all emulators (0,1)
+global.smooth=1
+
+## Set rewind for all emulators (0,1)
+global.rewind=1
+
+## Set autosave/load savestate for all emulators (0,1)
+global.autosave=0
+
+## Enable retroarchievements (0,1)
+## Set your www.retroachievements.org username/password
+## Escape your special chars (# ; $) with a backslash : $ => \$
+global.retroachievements=0
+global.retroachievements.hardcore=0
+global.retroachievements.username=
+global.retroachievements.password=
+
+## Set retroarch input driver (auto, udev, sdl2)
+## If you don't have issues with your controllers, let auto
+global.inputdriver=auto
+
+## If you do not want recalboxOS to generate the configuration for all emulators (string)
+;global.configfile=/path/to/my/configfile.cfg
+
+## Demo screensaver parameters
+## Set the system list from which ES will run random games.
+## Empty list or unexisting key means all available systems
+global.demo.systemlist=3do,amigacd32,atari2600,atari5200,atari7800,daphne,fba_libretro,fds,gamegear,gba,lynx,mame,mastersystem,megadrive,neogeo,nes,ngpc,o2em,pcengine,sega32x,sg1000,snes
+## Default demo game sessions last 90s. Change this value if you want shorter or longer sessions
+;global.demo.duration=90
+
+# ------------ I - EMULATORS CHOICES ----------- #
+## You can override the global configurations here
+## Here is the snes example
+;snes.videomode=default
+snes.core=snes9x2010
+;snes.shaders=/recalbox/share/shaders/shaders_glsl/mysnesshader.gplsp
+;snes.ratio=1/1
+;snes.smooth=0
+;snes.rewind=1
+;snes.autosave=0
+;snes.emulator=libretro
+;snes.integerscale=0
+## If you do not want recalboxOS to generate the configuration for the emulator: 
+;snes.configfile=/path/to/my/configfile.cfg
+
+## Default cores for RPi3
+snes.core=snes9x2010
+gba.core=mgba
+mame.core=mame2003
+nes.core=fceunext
+
+## NeoGeo emulator 
+## You can use pifba or a libretro core (fba2x,libretro)
+neogeo.emulator=libretro
+## If you set libretro as neogeo.emulator, the line below sets the retroarch core (fbalpha, mame2000)
+neogeo.core=fbalpha
+
+## N64 emulator is configured to display a screen with a 640x480 resolution (native n64 resolution)
+## So you must use one of these video modes (DMT 4 HDMI,CEA 1 HDMI).
+## If your screen is not compatible with one of these video modes, please check the recalbox's wiki.
+n64.videomode=default
+## If you are using a CRT screen, please change the setting above with this one : 
+# n64.videomode=default
+
+## Dreamcast emulator
+## Like N64, such a CPU intensive emulator needs a small resolution
+## Consider DMT 4 HDMI (640*480) or DMT 9 HDMI (800*600). If you have a black screen on dreamcast, try DMT 9 HDMI here
+dreamcast.videomode=default
+
+## Demo screensaver parameters
+## Include or exclude a particular system from the demo screensaver
+## You may change the global.demo.systemlist key or include/exclude every single system
+;snes.demo.include=0
+## Set the session duration for a particular system
+;snes.demo.duration=90
+
+# ------------ J - NETPLAY PARAMETERS ----------- #
+## All these values are handled by Recalbox itself
+global.netplay=1
+global.netplay.nickname=
+global.netplay.port=55435
+global.netplay.relay=
+global.netplay.systems=fba_libretro,mame,mastersystem,megadrive,neogeo,nes,pcengine,sega32x,sg1000,snes,supergrafx
+global.netplay.lobby=http://lobby.libretro.com/list/
+
+## Configurations generated by Recalbox
+gba.flatfolder=0
+gba.sort=0
+
+3do.videomode=default
+3do.ratio=1/1
+
+amiga600.videomode=default
+amiga600.ratio=1/1
+
+amiga1200.videomode=default
+amiga1200.ratio=1/1
+
+amigacd32.videomode=default
+amigacd32.ratio=1/1
+
+amstradcpc.videomode=default
+amstradcpc.ratio=1/1
+
+apple2.videomode=default
+apple2.ratio=1/1
+
+atari800.videomode=default
+atari800.ratio=1/1
+
+atari2600.videomode=default
+atari2600.ratio=1/1
+
+atari5200.videomode=default
+atari5200.ratio=1/1
+
+atari7800.videomode=default
+atari7800.ratio=1/1
+
+atarist.videomode=default
+atarist.ratio=1/1
+
+c64.videomode=default
+c64.ratio=1/1
+
+cavestory.videomode=default
+cavestory.ratio=1/1
+
+channelf.videomode=default
+channelf.ratio=1/1
+
+colecovision.videomode=default
+colecovision.ratio=1/1
+
+daphne.videomode=default
+daphne.ratio=1/1
+
+dos.videomode=default
+dos.ratio=1/1
+
+dreamcast.videomode=default
+dreamcast.ratio=1/1
+
+fba.videomode=default
+fba.ratio=1/1
+
+fba_libretro.videomode=default
+fba_libretro.ratio=1/1
+
+fds.videomode=default
+fds.ratio=1/1
+
+gamegear.videomode=default
+gamegear.ratio=1/1
+
+gb.videomode=default
+gb.ratio=1/1
+
+gba.videomode=default
+gba.ratio=1/1
+
+gbc.videomode=default
+gbc.ratio=1/1
+
+gw.videomode=default
+gw.ratio=1/1
+
+imageviewer.videomode=default
+imageviewer.ratio=1/1
+
+intellivision.videomode=default
+intellivision.ratio=1/1
+
+lutro.videomode=default
+lutro.ratio=1/1
+
+lynx.videomode=default
+lynx.ratio=1/1
+
+mame.videomode=default
+mame.ratio=1/1
+
+mastersystem.videomode=default
+mastersystem.ratio=1/1
+
+
+megadrive.videomode=default
+megadrive.ratio=1/1
+
+moonlight.videomode=default
+moonlight.ratio=1/1
+
+msx.videomode=default
+msx.ratio=1/1
+
+msx1.videomode=default
+msx1.ratio=1/1
+
+msx2.videomode=default
+msx2.ratio=1/1
+
+n64.videomode=default
+n64.ratio=1/1
+
+neogeo.videomode=default
+neogeo.ratio=1/1
+
+neogeocd.videomode=default
+neogeocd.ratio=1/1
+
+nes.videomode=default
+nes.ratio=1/1
+
+ngp.videomode=default
+ngp.ratio=1/1
+
+ngpc.videomode=default
+ngpc.ratio=1/1
+
+o2em.videomode=default
+o2em.ratio=1/1
+
+oricatmos.videomode=default
+oricatmos.ratio=1/1
+
+pc98.videomode=default
+pc98.ratio=1/1
+
+pcengine.videomode=default
+pcengine.ratio=1/1
+
+pcenginecd.videomode=default
+pcenginecd.ratio=1/1
+
+pokemini.videomode=default
+pokemini.ratio=1/1
+
+prboom.videomode=default
+prboom.ratio=1/1
+
+psp.videomode=default
+psp.ratio=1/1
+
+psx.videomode=default
+psx.ratio=1/1
+
+samcoupe.videomode=default
+samcoupe.ratio=1/1
+
+satellaview.videomode=default
+satellaview.ratio=1/1
+
+scummvm.videomode=default
+scummvm.ratio=1/1
+
+sega32x.videomode=default
+sega32x.ratio=1/1
+
+segacd.videomode=default
+segacd.ratio=1/1
+
+sg1000.videomode=default
+sg1000.ratio=1/1
+
+snes.videomode=default
+snes.ratio=1/1
+
+sufami.videomode=default
+sufami.ratio=1/1
+
+supergrafx.videomode=default
+supergrafx.ratio=1/1
+
+thomson.videomode=default
+thomson.ratio=1/1
+
+vectrex.videomode=default
+vectrex.ratio=1/1
+
+virtualboy.videomode=default
+virtualboy.ratio=1/1
+
+wswan.videomode=default
+wswan.ratio=1/1
+
+wswanc.videomode=default
+wswanc.ratio=1/1
+
+x68000.videomode=default
+x68000.ratio=1/1
+nes.videomode=default
+nes.ratio=1/1
+
+zx81.videomode=default
+zx81.ratio=1/1
+
+zxspectrum.videomode=default
+zxspectrum.ratio=1/1

@@ -1,0 +1,3 @@
+/home/pi/GamePi15/retropie/rpi-fbcp/build/CMakeFiles/rebuild_cache.dir
+/home/pi/GamePi15/retropie/rpi-fbcp/build/CMakeFiles/edit_cache.dir
+/home/pi/GamePi15/retropie/rpi-fbcp/build/CMakeFiles/fbcp.dir

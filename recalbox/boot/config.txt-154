@@ -1,0 +1,63 @@
+# uncomment if you get no picture on HDMI for a default "safe" mode
+#hdmi_safe=1
+
+disable_overscan=1
+
+# uncomment to force a specific HDMI mode (this will force VGA)
+#hdmi_group=1
+#hdmi_mode=1
+
+# Sound output. Set to 0 or comment for autodetect, 1 for DVI, 2 to force HDMI.
+#hdmi_drive=2
+
+# Using /etc/modules is deprecated and no longer supported on 4.4 kernel
+# So manually enable audio
+dtparam=audio=on
+
+config_hdmi_boost=0
+
+# force hdmi while the tv can take time before sending the signal on the hdmi output
+hdmi_force_hotplug=1
+
+# uncomment for composite PAL
+#sdtv_mode=2
+
+# uncomment for lirc-rpi
+#dtoverlay=lirc-rpi
+
+# if you plug your tv at the same time as your rpi and that the rpi switches from the hdmi or give a low resolution because tv had no enough time to initialize it
+boot_delay=3
+
+# uncomment if you don't want the rainbow at startup
+disable_splash=1
+
+# default CEC name
+cec_osd_name=recalbox
+
+# Overclock
+gpu_mem_256=128
+gpu_mem_512=256
+gpu_mem_1024=384
+
+avoid_safe_mode=1
+
+kernel=zImage
+
+# Raise the first security limit up to 70° instead of 60°
+temp_soft_limit=70
+
+dtparam=spi=on
+dtoverlay=pwm
+
+#arm_freq=1100
+#core_freq=550
+#sdram_freq=600
+#over_voltage=8
+#over_voltage_sdram=6
+#force_turbo=1
+
+hdmi_force_hotplug=1
+hdmi_cvt=480 480 60 1 0 0 0
+hdmi_group=2
+hdmi_mode=87
+avoid_warnings=1

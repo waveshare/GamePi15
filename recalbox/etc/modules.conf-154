@@ -1,0 +1,5 @@
+snd_bcm2835
+uinput
+usbhid
+flexfb 
+fbtft_device
